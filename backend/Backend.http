@@ -1,0 +1,31 @@
+@host = http://localhost:5080
+@cart = 11111111-1111-1111-1111-111111111111
+
+GET {{host}}/api/products
+
+###
+GET {{host}}/api/carts/{{cart}}
+
+###
+POST {{host}}/api/carts/{{cart}}/items
+Content-Type: application/json
+
+{ "productCode": "P003", "quantity": 1 }
+
+###
+PUT {{host}}/api/carts/{{cart}}/items/P003
+Content-Type: application/json
+
+{ "quantity": 2 }
+
+###
+DELETE {{host}}/api/carts/{{cart}}/items/P003
+
+###
+DELETE {{host}}/api/carts/{{cart}}
+
+###
+POST {{host}}/api/carts/{{cart}}/checkout
+
+###
+GET {{host}}/api/carts/{{cart}}/orders
