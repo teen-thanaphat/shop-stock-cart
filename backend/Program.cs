@@ -27,6 +27,8 @@ using (var scope = app.Services.CreateScope())
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    // หน้าเว็บสำหรับทดสอบ API: http://localhost:5080/swagger
+    app.UseSwaggerUI(options => options.SwaggerEndpoint("/openapi/v1.json", "Backend API"));
 }
 
 app.UseCors();
